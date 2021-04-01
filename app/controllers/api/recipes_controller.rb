@@ -1,6 +1,6 @@
 class Api::RecipesController < ApplicationController
   def index
-    @message = "Hello!"
+    @recipes = Recipe.all
     render 'index.json.jb'
   end
 end

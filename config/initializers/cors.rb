@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:8080', 'cookbook-app.izguerras.com'
+    origins 'localhost:8080', 'https://mini-capstone.netlify.app/#/restful-routes/products'
 
     resource '*',
       headers: :any,

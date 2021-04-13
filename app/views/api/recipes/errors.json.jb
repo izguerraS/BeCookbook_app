@@ -1,0 +1,3 @@
+{
+  errors: @recipe.errors.full_messages
+}

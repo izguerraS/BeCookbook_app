@@ -1,5 +1,9 @@
 class Api::RecipesController < ApplicationController
   def index
+    p "*" * 8
+    p current_user
+    p "*" * 8
+
     @recipes = Recipe.all
     render 'index.json.jb'
   end
@@ -10,17 +14,23 @@ class Api::RecipesController < ApplicationController
   end
 
   def create
+    p current_user
     @recipe = Recipe.new(
-      chef: params[:chef],
+      chef: current_user.name,
       title: params[:title],
       prep_time: params[:prep_time],
       ingredients: params[:ingredients],
       directions: params[:directions],
       image_url: params[:image_url],
+      user_id: current_user.id
     )
-    @recipe.save
-    render 'show.json.jb'
+    if @recipe.save
+      render 'show.json.jb'
+    else
+      render 'errors.json.jb'
+    end
   end
+
 
   def update
     @recipe = Recipe.find_by(id: params[:id])

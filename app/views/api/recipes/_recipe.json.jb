@@ -1,0 +1,18 @@
+{
+  id: recipe.id,
+  title: recipe.title,  
+  Chef: recipe.chef,
+  # chef: recipe.user && recipe.user.name,
+  ingredients: recipe.ingredients,
+  created_at: recipe.created_at.strftime("%B-%d-%y"),    
+  prep_time: recipe.prep_time,
+  directions: recipe.directions,
+  image_url: recipe.image_url,
+  user_id: recipe.user_id,
+
+  # name: user.name,
+  # formatted: {
+  #   prep_time: recipe.friendly_prep_time,
+  #   ingredients: recipe.ingredients_list
+  # }
+} 
